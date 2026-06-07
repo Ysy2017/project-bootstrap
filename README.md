@@ -2,8 +2,6 @@
 
 > 一个 [Claude Code](https://claude.com/claude-code) skill —— 用「**规划优先 + 分步实现**」把模糊 idea / 半成品 / 待重构,变成**可执行的规划文档 + 一条「一步一验证」的实现流水线**。
 
-蒸馏自 [EnzeD/vibe-coding](https://github.com/EnzeD/vibe-coding) 方法论,改用 Claude Code 原生能力(subagent / plan mode / hook / 落盘可弃对话)替代原指南里的手动仪式。
-
 ---
 
 ## 解决什么痛点
@@ -93,20 +91,3 @@ architecture.md         活文档:每个文件 / 模块干什么、数据结构 
 ```
 
 ---
-
-## 与原指南的差异
-
-| 原指南(手动时代) | 本 skill(Claude Code 原生) |
-|---|---|
-| 每步手动 `/clear` 隔离上下文 | 每步一个 subagent,天然隔离 |
-| 「我来跑测试、你等我」纯人工 | 子代理实现 → 人确认 → 跑验证 |
-| memory-bank 五件套硬造 | 已有等价文档复用、不重造 |
-| (无)上下文 / 换会话方案 | 状态落盘 → 对话可弃 + 封存 / 恢复双闸 |
-| (无)审查机制 | 每步自审清单 + 里程碑合并前独立 `/code-review` |
-| (无)分支生命周期 | 分支 = 里程碑,三边界对齐 |
-
-完整规则见 [`SKILL.md`](SKILL.md)。
-
-## 致谢
-
-方法论源自 [EnzeD/vibe-coding](https://github.com/EnzeD/vibe-coding),本 skill 将其重写为 Claude Code 原生工作流。
